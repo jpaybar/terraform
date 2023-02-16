@@ -249,7 +249,7 @@ El siguiente comando que ejecutaremos será `terraform plan`, nos permite ver el
 
 Confirmamos que es la planificación deseada y ejecutamos `terraform apply`:
 
-![terraform_apply.PNG]([https://github.com/jpaybar/Terraform/tree/main/Terraform_introduccion_mysql_provider/_images/terraform_apply.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/terraform_apply.PNG))
+![terraform_apply.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/terraform_apply.PNG)
 
 nos pedirá que confirmemos que queremos realizar los cambios escribiendo por la terminal `yes` y nos muestra los cambios realizados.
 
