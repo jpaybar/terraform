@@ -1,0 +1,7 @@
+# Subir Par de claves
+# https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_keypair_v2
+
+resource "openstack_compute_keypair_v2" "keypair" {
+  name       = "jpayan"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC5bDZRiizEWRrpHrONWW7T3e+h5zalGDIbH+XDOM/X5POSZIH6dtIT5No0cxDkdro+56yqT2aJqi+EWIOkGZbxoj1IUiubmxs7J25zMnFNU2nFdJOysSLGVDFsnxTiV3gkz0TcaklFDO4zumfAwH8cIi3CRTU5W0Buqk+eE6zkG86hV4T3zivs9qP/b27Kn9LxMGKny8oNBC4OqvWRe46RLW9rIdgaGxzS+VqA/jH9qm0YQ6P3brFGLEe4XYkL2Lj0jGJ0ycXwJSYkqH9gFSen9/kiZGnkzvEVR0Ivs1hmRGpleoPje2LlV2SccXem0tb3WuPSR5TYiFDSQvIkF920Bpw1090gODmurwYYbBD5El5ovTdvEGn779jjl+y0lvAIjZ45+AU6qQiDMG/TSmj37jpXqVz54JpyUPb1ZekPNWIZy9abzYKPX07XGU1Y51gC1VOPAxZEcp/YrYIa7ztDdN6cS1lQbZ2mb5lbasZgfHEZfoc7ji1r7qK3x8QRZl8= vagrant@devstack"
+}
