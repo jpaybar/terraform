@@ -172,7 +172,7 @@ Para más detalles de configuración del recurso `openstack_compute_keypair_v2` 
 
 Comprovamos con `Horizon` que nuestro `keypair` se ha creado correctamente:
 
-![0_subir_keypair.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\0_subir_keypair.PNG)
+![0_subir_keypair.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/0_subir_keypair.PNG)
 
 ### Crear un Volúmen
 
