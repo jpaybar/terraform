@@ -313,7 +313,7 @@ resource "openstack_networking_network_v2" "red1" {
 }
 ```
 
-![6_crear_red.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\6_crear_red.png)
+![6_crear_red.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/6_crear_red.png)
 
 ### Crear una Subred
 
@@ -341,7 +341,7 @@ Asignamos al recurso el `id` llamado `subred1` y la directivas serán:
 
 - `tenant_id:` `id` del proyecto.
 
-![7_crear_subred.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\7_crear_subred.png)
+![7_crear_subred.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/7_crear_subred.png)
 
 ### Crear un Router con conexión a la Red Pública
 
@@ -360,7 +360,7 @@ resource "openstack_networking_router_v2" "router1" {
 
 En `external_network_id` asignamos el `id` de la Red Pública y en `tenant_id` igual que anteriormente el `id` del proyecto.
 
-![8_crear_router.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\8_crear_router.PNG)
+![8_crear_router.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/8_crear_router.PNG)
 
 ### Crear una interfaz en el Router para conectarlo a una Subred
 
@@ -376,7 +376,7 @@ resource "openstack_networking_router_interface_v2" "interfaz_router1" {
 }
 ```
 
-![9_crear_interfaz_router.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\9_crear_interfaz_router.PNG)
+![9_crear_interfaz_router.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/9_crear_interfaz_router.PNG)
 
 ### Crear una `Instancia` con la imágen de `Ubuntu 20.04`
 
@@ -426,7 +426,7 @@ resource "openstack_compute_floatingip_v2" "ip" {
 
 Y la directiva `instance_id` que apunta al recurso que hemos definido en el fichero para crear la instancia con `id` `instancia`.
 
-![10_crear_instancia.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\10_crear_instancia.png)
+![10_crear_instancia.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/10_crear_instancia.png)
 
 Para finalizar, asociaremos el volúmen que creamos al principio a esta instancia.
 
@@ -440,7 +440,7 @@ resource "openstack_compute_volume_attach_v2" "asociar_volumen" {
 }
 ```
 
-![11_asociar_volumen.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\11_asociar_volumen.png)
+![11_asociar_volumen.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/11_asociar_volumen.png)
 
 Y hasta aquí, habremos creado una pequeña infraestructura desde cero. Si quisieramos eliminar todos los cambios hechos en nuestro proyecto, sería tan fácil como ejecutar el comando `terraform apply -destroy` o directamente su alias `terraform destroy`.
 
