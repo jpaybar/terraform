@@ -6,6 +6,7 @@
 
 st4rt.fr0m.scr4tch@gmail.com
 
+
 En este tutorial, crearemos una infraestructura básica en `OpenStack` usando `Terraform`, el cual será la continuación de la publicación anterior sobre el uso de `Terraform`, aunque esta vez, nuestro proveedor no será `MySQL` sino la nuebe privada:
 [Terraform/README.md at main · jpaybar/Terraform · GitHub](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/README.md)
 
