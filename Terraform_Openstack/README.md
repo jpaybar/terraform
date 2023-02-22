@@ -43,6 +43,10 @@ mkdir terraform_openstack
 cd terraform_openstack
 ```
 
+##### **NOTA:**
+
+**Debemos descargar nuestro fichero `RC` de nuestro proyecto `OpenStack` en este caso `admin-openrc.sh` y ejecutar el comando `source admin-openrc.sh `, si nos pregunta las credenciales las introducimos y pulsamos enter.**
+
 Creamos el fichero principal de configuración, donde estableceremos los datos del proveedor y de conexión a nuestro proyecto en la nube (en mi caso voy a coger el proyecto `admin`). El fichero se llamará `main`:
 
 ```hcl
