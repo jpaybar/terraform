@@ -221,7 +221,7 @@ resource "openstack_images_image_v2" "imagen_ubuntu2004" {
 
 Definimos el `id` del recurso `openstack_images_image_v2` con el nombre `imagen_ubuntu2004` y definimos las directivas `name`, `local_file_path`, `container_format` y `disk_format`. 
 
-![2_subir_imagen.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\2_subir_imagen.png)
+![2_subir_imagen.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/2_subir_imagen.png)
 
 ### Solicitar una `IP Flotante`
 
@@ -236,7 +236,7 @@ resource "openstack_compute_floatingip_v2" "ip" {
 }
 ```
 
-![3_crear_ip_flotante.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\3_crear_ip_flotante.PNG)
+![3_crear_ip_flotante.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/3_crear_ip_flotante.PNG)
 
 ### Crear un `Grupo de Seguridad`
 
@@ -255,7 +255,7 @@ resource "openstack_networking_secgroup_v2" "grupo_seguridad" {
 
 El `id` del recurso será `grupo_seguridad`, y el nombre con el que se creará en `OpenStack` `grupo_seguridad_1`.
 
-![4_crear_grupo_seguridad.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\4_crear_grupo_seguridad.png)
+![4_crear_grupo_seguridad.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/4_crear_grupo_seguridad.png)
 
 ### Agregar una regla de seguridad
 
@@ -292,11 +292,11 @@ resource "openstack_networking_secgroup_rule_v2" "ssh_rule" {
 
 - `security_group_id:` Id del grupo de seguridad al que queremos añadir la regla.
 
-![5_añadir_regla_ssh.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\5_añadir_regla_ssh.PNG)
+![5_añadir_regla_ssh.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/5_a%C3%B1adir_regla_ssh.PNG)
 
 Verificamos que ahora podemos acceder a las instancias que pertenezcan a dicho grupo de seguridad por `SSH`:
 
-![conexion_instancia.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\conexion_instancia.PNG)
+![conexion_instancia.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/conexion_instancia.PNG)
 
 ### Crear una Red
 
