@@ -193,7 +193,7 @@ resource "openstack_blockstorage_volume_v2" "volumen" {
 
 El procedimiento sería el mismo, `terraform plan` y `terraform apply`.
 
-![1_crear_volumen.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack\_images\1_crear_volumen.PNG)
+![1_crear_volumen.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack/_images/1_crear_volumen.PNG)
 
 ### Subir una imágen
 
