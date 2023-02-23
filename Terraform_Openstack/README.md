@@ -63,13 +63,16 @@ required_version = ">= 0.14.0"
   }
 }
 
-# Configure the OpenStack Provider
+# Configure the OpenStack Provider (or source your RC Project file)
 provider "openstack" {
-  user_name   = "admin"
-  tenant_name = "admin"
-  password    = "openstack"
-  auth_url    = "http://192.168.56.15/identity"
-  region      = "RegionOne"
+  user_name         = "<OS_USERNAME>"
+  tenant_name       = "<OS_PROJECT_NAME>"
+  tenant_id         = "<OS_PROJECT_ID>"
+  password          = "<OS_PASSWORD>"
+  auth_url          = "<OS_AUTH_URL>"
+  region            = "<OS_REGION_NAME>"
+  user_domain_name  = "<OS_USER_DOMAIN_NAME>"
+  project_domain_id = "<OS_PROJECT_DOMAIN_ID>"
 }
 ```
 
