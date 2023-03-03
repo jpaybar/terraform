@@ -447,27 +447,27 @@ Empezamos con la inicializacion del proveedor `Openstack` en la carpeta del proy
 
 Por último ejecutamos `terraform apply` o `terraform apply -auto-approve` para aplicar los cambios:
 
-![1_terraform_apply.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack_Ansible_Provisioning_WordPress\_images\1_terraform_apply.PNG)
+![1_terraform_apply.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/1_terraform_apply.PNG)
 
  Una vez se hayan ejecutados y aplicados los `resources` de nuestro fichero `wordpress_instance_deployment.tf` empieza a ejecutarse el primer `provisioner` "remote-exec":
 
-![2_remote_exec.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack_Ansible_Provisioning_WordPress\_images\2_remote_exec.png)
+![2_remote_exec.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/2_remote_exec.png)
 
 Cuando este termine pasará a ejecutarse el siguiente `provisioner`, en este caso el "local-exec" que ejecutará el playbook de `Ansible`:
 
-![3_local_exec.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack_Ansible_Provisioning_WordPress\_images\3_local_exec.png)
+![3_local_exec.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/3_local_exec.png)
 
 Una vez se ejecute el playbook veremos el resultado:
 
-![4_final_output.PNG](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack_Ansible_Provisioning_WordPress\_images\4_final_output.PNG)
+![4_final_output.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/4_final_output.PNG)
 
 Comprobamos en `Openstack` que la instancia se a creado correctamente con `Terraform`:
 
-![5_openstack_instance.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack_Ansible_Provisioning_WordPress\_images\5_openstack_instance.png)
+![5_openstack_instance.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/5_openstack_instance.png)
 
 Atacamos en el navegador la `IP Flotante` que se nos asigno y vemos la página inicial de instalación de `WordPress`:
 
-![6_wordpress.png](C:\LABO\vagrant\TERRAFORM\Terraform_Openstack_Ansible_Provisioning_WordPress\_images\6_wordpress.png)
+![6_wordpress.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/6_wordpress.png)
 
 ## Author Information
 
