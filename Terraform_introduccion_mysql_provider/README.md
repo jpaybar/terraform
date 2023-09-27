@@ -188,7 +188,7 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS    
 
 Confirmamos que nuestro servidor `MySQL` solo tiene las Bases de Datos de una instalación limpia
 
-![original_mysql_container.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/original_mysql_container.PNG)
+![original_mysql_container.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/original_mysql_container.png)
 
 ### Archivo de configuración
 
@@ -245,11 +245,11 @@ Initializing provider plugins...
 
 El siguiente comando que ejecutaremos será `terraform plan`, nos permite ver el estado deseado al que quermos llegar antes de ser llevado a cabo. Sería algo similar al flag `-C` o `--check` cuando ejecutamos `ansible-playbook`.
 
-![terraform_plan.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/terraform_plan.PNG)
+![terraform_plan.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/terraform_plan.png)
 
 Confirmamos que es la planificación deseada y ejecutamos `terraform apply`:
 
-![terraform_apply.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/terraform_apply.PNG)
+![terraform_apply.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/terraform_apply.png)
 
 nos pedirá que confirmemos que queremos realizar los cambios escribiendo por la terminal `yes` y nos muestra los cambios realizados.
 
@@ -261,11 +261,11 @@ docker exec -it mysql-server bash
 
 Comprobamos que se ha creado correctamente la base de datos `db_prueba`:
 
-![mysql_container_1cambio_db.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/mysql_container_1cambio_db.PNG)
+![mysql_container_1cambio_db.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/mysql_container_1cambio_db.png)
 
 Y que también se ha creado el usuario `jpayan`:
 
-![mysql_container_1cambio_usuario.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/mysql_container_1cambio_usuario.PNG)
+![mysql_container_1cambio_usuario.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/mysql_container_1cambio_usuario.png)
 
 Como dijimos al inicio, creariamos un segundo usuario llamado `usuario1` para modificar la infraestructura en el servidor `MySQL` y aplicar los nuevos cambios (también podría ser algo muy funcional como cambiar las contraseñas del usuario). Para ello editamos nuestro fichero de configuración y añadimos el nuevo recurso de usuario y quedaría de la siguiente forma:
 
@@ -309,7 +309,7 @@ resource "mysql_user" "usuario1" {
 
 Volvemos a ejecutar `terraform plan` y nos mostrará el estado nuevo a alcanzar con los cambio y añadidos:
 
-![mysql_container_2cambio_other_user.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/mysql_container_2cambio_other_user.PNG)
+![mysql_container_2cambio_other_user.png](https://github.com/jpaybar/Terraform/blob/main/Terraform_introduccion_mysql_provider/_images/mysql_container_2cambio_other_user.png)
 
 Ejecutamos de nuevo `terraform apply` y verificamos que se ha creado el nuevo usuario `usuario1`
 
