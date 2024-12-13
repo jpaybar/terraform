@@ -447,7 +447,7 @@ Empezamos con la inicializacion del proveedor `Openstack` en la carpeta del proy
 
 Por último ejecutamos `terraform apply` o `terraform apply -auto-approve` para aplicar los cambios:
 
-![1_terraform_apply.PNG](https://github.com/jpaybar/Terraform/blob/main/Terraform_Openstack_Ansible_Provisioning_WordPress/_images/1_terraform_apply.PNG)
+![1_terraform_apply.PNG](Terraform_Openstack_Ansible_Provisioning_WordPress/_images/1_terraform_apply.PNG)
 
  Una vez se hayan ejecutados y aplicados los `resources` de nuestro fichero `wordpress_instance_deployment.tf` empieza a ejecutarse el primer `provisioner` "remote-exec":
 
