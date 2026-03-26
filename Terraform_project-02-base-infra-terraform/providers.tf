@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "openstack" {
-  cloud       = "openstack"
+  cloud       = "openstack"  # apunta al nombre definido en ~/.config/openstack/clouds.yaml
   use_octavia = true
 }

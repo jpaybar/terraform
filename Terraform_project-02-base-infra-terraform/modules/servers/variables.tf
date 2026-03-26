@@ -60,3 +60,21 @@ variable "server3_name" {
   type        = string
   default     = "server3"
 }
+
+variable "server1_metadata" {
+  description = "Metadatos de server1 para inventario dinámico de Ansible"
+  type        = map(string)
+  default     = {}
+}
+
+variable "server2_metadata" {
+  description = "Metadatos de server2 para inventario dinámico de Ansible"
+  type        = map(string)
+  default     = {}
+}
+
+variable "server3_metadata" {
+  description = "Metadatos de server3 para inventario dinámico de Ansible"
+  type        = map(string)
+  default     = {}
+} 

@@ -62,6 +62,9 @@ module "servers" {
   server1_name   = var.server1_name
   server2_name   = var.server2_name
   server3_name   = var.server3_name
+  server1_metadata = var.server1_metadata
+  server2_metadata = var.server2_metadata
+  server3_metadata = var.server3_metadata
 
   depends_on = [module.routers, module.security_groups]
 }

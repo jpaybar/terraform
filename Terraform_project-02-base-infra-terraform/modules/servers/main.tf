@@ -35,6 +35,7 @@ resource "openstack_compute_instance_v2" "server1" {
   image_name  = var.image
   flavor_name = var.flavor
   key_pair    = var.key_name
+  metadata    = var.server1_metadata
 
   network {
     port = openstack_networking_port_v2.server1_port.id
@@ -46,6 +47,7 @@ resource "openstack_compute_instance_v2" "server2" {
   image_name  = var.image
   flavor_name = var.flavor
   key_pair    = var.key_name
+  metadata    = var.server2_metadata
 
   network {
     port = openstack_networking_port_v2.server2_port.id
@@ -57,6 +59,7 @@ resource "openstack_compute_instance_v2" "server3" {
   image_name  = var.image
   flavor_name = var.flavor
   key_pair    = var.key_name
+  metadata    = var.server3_metadata
 
   network {
     port = openstack_networking_port_v2.server3_port.id

@@ -42,3 +42,18 @@ sg_server3_name = "sg_server3"
 server1_name = "server1"
 server2_name = "server2"
 server3_name = "server3"
+
+# ─── Metadatos Ansible ──────────────────────────────────
+server1_metadata = {
+  role        = "proxy"
+  environment = "production"
+}
+server2_metadata = {
+  role        = "webserver"
+  application = "wordpress"
+  environment = "production"
+}
+server3_metadata = {
+  role        = "database"
+  environment = "production"
+}

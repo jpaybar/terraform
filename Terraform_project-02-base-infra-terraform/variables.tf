@@ -141,3 +141,22 @@ variable "server3_name" {
   description = "Nombre de server3"
   type        = string
 }
+
+# ─── Metadatos Ansible ──────────────────────────────────
+variable "server1_metadata" {
+  description = "Metadatos de server1 (grupos Ansible, rol, etc.)"
+  type        = map(string)
+  default     = {}
+}
+
+variable "server2_metadata" {
+  description = "Metadatos de server2 (grupos Ansible, rol, etc.)"
+  type        = map(string)
+  default     = {}
+}
+
+variable "server3_metadata" {
+  description = "Metadatos de server3 (grupos Ansible, rol, etc.)"
+  type        = map(string)
+  default     = {}
+}
