@@ -8,6 +8,8 @@ terraform {
 }
 
 # ─── PORTS ───────────────────────────────────────────────
+# IPs asignadas dinámicamente por DHCP. OpenStack garantiza
+# consistencia de IP mientras el port no sea eliminado.
 resource "openstack_networking_port_v2" "server1_port" {
   name               = "${var.server1_name}-port"
   network_id         = var.net1_id
@@ -33,9 +35,16 @@ resource "openstack_networking_port_v2" "server3_port" {
 resource "openstack_compute_instance_v2" "server1" {
   name        = var.server1_name
   image_name  = var.image
-  flavor_name = var.flavor
+  flavor_name = var.server1_flavor
   key_pair    = var.key_name
   metadata    = var.server1_metadata
+  user_data   = <<-EOF
+    #!/bin/bash
+    echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+    echo "UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
+    echo "AllowAgentForwarding yes" >> /etc/ssh/sshd_config
+    systemctl restart ssh
+  EOF
 
   network {
     port = openstack_networking_port_v2.server1_port.id
@@ -45,9 +54,16 @@ resource "openstack_compute_instance_v2" "server1" {
 resource "openstack_compute_instance_v2" "server2" {
   name        = var.server2_name
   image_name  = var.image
-  flavor_name = var.flavor
+  flavor_name = var.server2_flavor
   key_pair    = var.key_name
   metadata    = var.server2_metadata
+  user_data   = <<-EOF
+    #!/bin/bash
+    echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+    echo "UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
+    echo "AllowAgentForwarding yes" >> /etc/ssh/sshd_config
+    systemctl restart ssh
+  EOF
 
   network {
     port = openstack_networking_port_v2.server2_port.id
@@ -57,9 +73,16 @@ resource "openstack_compute_instance_v2" "server2" {
 resource "openstack_compute_instance_v2" "server3" {
   name        = var.server3_name
   image_name  = var.image
-  flavor_name = var.flavor
+  flavor_name = var.server3_flavor
   key_pair    = var.key_name
   metadata    = var.server3_metadata
+  user_data   = <<-EOF
+    #!/bin/bash
+    echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+    echo "UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
+    echo "AllowAgentForwarding yes" >> /etc/ssh/sshd_config
+    systemctl restart ssh
+  EOF
 
   network {
     port = openstack_networking_port_v2.server3_port.id

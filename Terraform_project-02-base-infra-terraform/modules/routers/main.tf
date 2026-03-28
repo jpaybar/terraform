@@ -22,11 +22,13 @@ resource "openstack_networking_router_v2" "router1" {
 resource "openstack_networking_router_v2" "router2" {
   name           = var.router2_name
   admin_state_up = true
+  external_network_id = data.openstack_networking_network_v2.external.id
 }
 
 resource "openstack_networking_router_v2" "router3" {
   name           = var.router3_name
   admin_state_up = true
+  external_network_id = data.openstack_networking_network_v2.external.id
 }
 
 # ─── INTERFACES ROUTER1 ──────────────────────────────────

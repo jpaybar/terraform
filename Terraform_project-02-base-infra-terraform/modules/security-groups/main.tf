@@ -10,7 +10,7 @@ terraform {
 # ─── SG SERVER1: Reverse proxy ───────────────────────────
 resource "openstack_networking_secgroup_v2" "sg_server1" {
   name        = var.sg_server1_name
-  description = "Reverse proxy - SSH, ICMP y HTTP publico"
+  description = "Reverse proxy - SSH, ICMP, HTTP y HTTPS publico"
 }
 
 resource "openstack_networking_secgroup_rule_v2" "sg_server1_ssh" {
@@ -33,6 +33,16 @@ resource "openstack_networking_secgroup_rule_v2" "sg_server1_http" {
   remote_ip_prefix  = "0.0.0.0/0"
 }
 
+resource "openstack_networking_secgroup_rule_v2" "sg_server1_https" {
+  security_group_id = openstack_networking_secgroup_v2.sg_server1.id
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_min    = 443
+  port_range_max    = 443
+  remote_ip_prefix  = "0.0.0.0/0"
+}
+
 resource "openstack_networking_secgroup_rule_v2" "sg_server1_icmp" {
   security_group_id = openstack_networking_secgroup_v2.sg_server1.id
   direction         = "ingress"
@@ -44,7 +54,7 @@ resource "openstack_networking_secgroup_rule_v2" "sg_server1_icmp" {
 # ─── SG SERVER2: App server ───────────────────────────────
 resource "openstack_networking_secgroup_v2" "sg_server2" {
   name        = var.sg_server2_name
-  description = "App server - SSH e HTTP solo desde net1"
+  description = "App server - SSH e HTTPS solo desde net1"
 }
 
 resource "openstack_networking_secgroup_rule_v2" "sg_server2_ssh" {
@@ -57,13 +67,13 @@ resource "openstack_networking_secgroup_rule_v2" "sg_server2_ssh" {
   remote_ip_prefix  = var.subnet1_cidr
 }
 
-resource "openstack_networking_secgroup_rule_v2" "sg_server2_http" {
+resource "openstack_networking_secgroup_rule_v2" "sg_server2_https" {
   security_group_id = openstack_networking_secgroup_v2.sg_server2.id
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
-  port_range_min    = 80
-  port_range_max    = 80
+  port_range_min    = 443
+  port_range_max    = 443
   remote_ip_prefix  = var.subnet1_cidr
 }
 

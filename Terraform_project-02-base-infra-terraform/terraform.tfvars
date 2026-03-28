@@ -1,6 +1,8 @@
 # ─── Servidor ───────────────────────────────────────────
 image    = "ubuntu"
-flavor   = "m1.tiny"
+server1_flavor = "m1.custom"
+server2_flavor = "m1.custom"
+server3_flavor = "m1.custom"
 key_name = "my_host_key"
 
 # ─── Red externa ────────────────────────────────────────
@@ -15,6 +17,13 @@ net3_name = "net3"
 subnet1_cidr = "192.168.1.0/24"
 subnet2_cidr = "192.168.2.0/24"
 subnet3_cidr = "192.168.3.0/24"
+
+# ─── IPs ──────────────────────────────────--────────────
+# IPs dinámicas por DHCP — valores comentados
+# server1_ip  = "192.168.1.10"
+# server2_ip  = "192.168.2.10"
+# server3_ip  = "192.168.3.10"
+# floating_ip = "172.20.0.10"
 
 # ─── DNS ────────────────────────────────────────────────
 dns_nameservers = ["8.8.8.8"]

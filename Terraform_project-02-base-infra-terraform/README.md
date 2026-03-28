@@ -43,11 +43,11 @@ The goal is to showcase the advantages of Terraform over Heat for infrastructure
 
 The infrastructure follows a classic **3-tier architecture**:
 
-| Tier        | Server  | Network               | Role                         |
-| ----------- | ------- | --------------------- | ---------------------------- |
-| Frontend    | server1 | net1 (192.168.1.0/24) | Nginx reverse proxy (public) |
-| Application | server2 | net2 (192.168.2.0/24) | Apache + PHP (internal)      |
-| Database    | server3 | net3 (192.168.3.0/24) | MySQL (internal)             |
+| Tier        | Server  | Network               | Role                                |
+| ----------- | ------- | --------------------- | ----------------------------------- |
+| Frontend    | server1 | net1 (192.168.1.0/24) | Nginx reverse proxy (public)        |
+| Application | server2 | net2 (192.168.2.0/24) | Apache + PHP + WordPress (internal) |
+| Database    | server3 | net3 (192.168.3.0/24) | MySQL (internal)                    |
 
 ```
 Internet
@@ -67,8 +67,8 @@ Internet
 
 ### 🔒 Security Groups
 
-- **sg_server1**: SSH, ICMP, HTTP from `0.0.0.0/0` (public)
-- **sg_server2**: SSH, ICMP, HTTP from `192.168.1.0/24` only
+- **sg_server1**: SSH, ICMP, HTTP (80) and HTTPS (443) from `0.0.0.0/0` (public). Port 80 is kept open for HTTP→HTTPS redirect.
+- **sg_server2**: SSH, ICMP, HTTPS (443) from `192.168.1.0/24` only
 - **sg_server3**: SSH, ICMP, MySQL (3306) from `192.168.2.0/24` only
 
 ---
@@ -103,14 +103,15 @@ Key features:
 The Terraform project is organized into **independent, reusable modules**, one per infrastructure component:
 
 ```
-project-02-base-infra-terraform/
+Terraform_project-02-base-infra-terraform/
+├── flavors.tf                 # Custom flavor definition (m1.custom)
 ├── main.tf                    # Root module - calls all child modules
 ├── variables.tf               # Root variable declarations
 ├── terraform.tfvars           # Variable values (dev environment)
 ├── outputs.tf                 # Root outputs (IPs, IDs)
 ├── providers.tf               # OpenStack provider configuration
 └── modules/
-    ├── networks/              # Networks and subnets
+    ├── networks/              # Networks, subnets and gateway routes
     ├── routers/               # Routers and static routes
     ├── security-groups/       # Security groups and rules
     ├── servers/               # Ports and compute instances
@@ -139,6 +140,14 @@ terraform apply -var-file="terraform-staging.tfvars"
 - OpenStack credentials configured in `~/.config/openstack/clouds.yaml`
 - Terraform 1.14.7 installed
 - SSH keypair available at `~/.ssh/id_rsa.pub`
+
+> ⚠️ **Important**: This project uses a custom flavor `m1.custom` (1 vCPU, 1024 MB RAM, 10 GB disk). It must exist in OpenStack before running `terraform apply`. Create it with:
+> 
+> ```bash
+> openstack flavor create m1.custom --vcpus 1 --ram 1024 --disk 10 --public
+> ```
+> 
+> Alternatively, the flavor is defined in `flavors.tf` and will be created automatically by Terraform if it does not exist.
 
 ### Step 1 — Empty topology
 
@@ -250,6 +259,8 @@ openstack stack show test-stack
 - **Single source of truth**: All values flow from `terraform.tfvars`. To create a production environment with different CIDRs and server names, just create `terraform-pro.tfvars`.
 
 - **Stateful firewall**: Security groups in OpenStack are stateful — return traffic is automatically allowed for established connections. No need for explicit egress rules.
+
+- **Network gateway routes**: Each internal network (net1, net2, net3) has a gateway route configured toward the `external-network`. This is required for inter-network routing through the OpenStack routers and ensures full connectivity across all three tiers.
 
 ---
 

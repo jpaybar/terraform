@@ -13,6 +13,7 @@ data "openstack_networking_network_v2" "external" {
 
 resource "openstack_networking_floatingip_v2" "fip_server1" {
   pool = data.openstack_networking_network_v2.external.name
+  # address = var.floating_ip   # IP dinámica — comentado
 }
 
 resource "openstack_networking_floatingip_associate_v2" "fip_assoc_server1" {

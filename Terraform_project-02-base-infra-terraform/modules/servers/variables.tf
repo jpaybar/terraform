@@ -3,8 +3,16 @@ variable "image" {
   type        = string
 }
 
-variable "flavor" {
-  description = "Flavor de las VMs"
+variable "server1_flavor" {
+  description = "Flavor de server1"
+  type        = string
+}
+variable "server2_flavor" {
+  description = "Flavor de server2"
+  type        = string
+}
+variable "server3_flavor" {
+  description = "Flavor de server3"
   type        = string
 }
 
@@ -78,3 +86,29 @@ variable "server3_metadata" {
   type        = map(string)
   default     = {}
 } 
+
+# IPs dinámicas por DHCP — variables de IP fija comentadas
+# variable "subnet1_id" {
+#   description = "ID de subnet1"
+#   type        = string
+# }
+# variable "subnet2_id" {
+#   description = "ID de subnet2"
+#   type        = string
+# }
+# variable "subnet3_id" {
+#   description = "ID de subnet3"
+#   type        = string
+# }
+# variable "server1_ip" {
+#   description = "IP fija de server1"
+#   type        = string
+# }
+# variable "server2_ip" {
+#   description = "IP fija de server2"
+#   type        = string
+# }
+# variable "server3_ip" {
+#   description = "IP fija de server3"
+#   type        = string
+# }

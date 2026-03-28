@@ -4,8 +4,16 @@ variable "image" {
   type        = string
 }
 
-variable "flavor" {
-  description = "Flavor del servidor"
+variable "server1_flavor" {
+  description = "Flavor de server1"
+  type        = string
+}
+variable "server2_flavor" {
+  description = "Flavor de server2"
+  type        = string
+}
+variable "server3_flavor" {
+  description = "Flavor de server3"
   type        = string
 }
 
@@ -160,3 +168,25 @@ variable "server3_metadata" {
   type        = map(string)
   default     = {}
 }
+
+# ─── IPs fijas ──────────────────────────────────────────
+# Comentadas — IPs asignadas dinámicamente por DHCP
+# variable "server1_ip" {
+#   description = "IP fija de server1 en subnet1"
+#   type        = string
+# }
+#
+# variable "server2_ip" {
+#   description = "IP fija de server2 en subnet2"
+#   type        = string
+# }
+#
+# variable "server3_ip" {
+#   description = "IP fija de server3 en subnet3"
+#   type        = string
+# }
+#
+# variable "floating_ip" {
+#   description = "IP flotante fija para server1"
+#   type        = string
+# }

@@ -51,7 +51,9 @@ module "security_groups" {
 module "servers" {
   source         = "./modules/servers"
   image          = var.image
-  flavor         = var.flavor
+  server1_flavor = openstack_compute_flavor_v2.custom.name
+  server2_flavor = openstack_compute_flavor_v2.custom.name
+  server3_flavor = openstack_compute_flavor_v2.custom.name
   key_name       = var.key_name
   net1_id        = module.networks.net1_id
   net2_id        = module.networks.net2_id
@@ -65,6 +67,12 @@ module "servers" {
   server1_metadata = var.server1_metadata
   server2_metadata = var.server2_metadata
   server3_metadata = var.server3_metadata
+  # subnet1_id   = module.networks.subnet1_id   # No necesario, IPs dinámicas
+  # subnet2_id   = module.networks.subnet2_id
+  # subnet3_id   = module.networks.subnet3_id
+  # server1_ip   = var.server1_ip
+  # server2_ip   = var.server2_ip
+  # server3_ip   = var.server3_ip
 
   depends_on = [module.routers, module.security_groups]
 }
@@ -73,6 +81,7 @@ module "floating_ips" {
   source           = "./modules/floating-ips"
   external_network = var.external_network
   server1_port_id  = module.servers.server1_port_id
+  # floating_ip  = var.floating_ip   # IP dinámica — comentado
 
   depends_on = [module.servers]
 }
